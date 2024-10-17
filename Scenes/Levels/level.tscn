@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=3 uid="uid://bb6wlmho0o2eu"]
+
+[ext_resource type="Texture2D" uid="uid://bei3rtx1imv3e" path="res://Assets/Trains/RedCart.png" id="1_1jvf7"]
+[ext_resource type="Script" path="res://Scripts/level.gd" id="1_3x1wl"]
+[ext_resource type="PackedScene" uid="uid://df5a8w8lawu38" path="res://Scenes/Sprites/player.tscn" id="1_cn6kb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o2uj7"]
+size = Vector2(20, 241)
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_3x1wl")
+
+[node name="CartImage" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(576, 283)
+scale = Vector2(12, 12)
+texture = ExtResource("1_1jvf7")
+
+[node name="Player" parent="." instance=ExtResource("1_cn6kb")]
+position = Vector2(533, 279)
+
+[node name="Exits" type="Node2D" parent="."]
+
+[node name="ToRight" type="Area2D" parent="Exits"]
+position = Vector2(1133, 313)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Exits/ToRight"]
+position = Vector2(-4, 5)
+shape = SubResource("RectangleShape2D_o2uj7")
+
+[node name="ToLeft" type="Area2D" parent="Exits"]
+position = Vector2(27, 313)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Exits/ToLeft"]
+position = Vector2(-4, 5)
+shape = SubResource("RectangleShape2D_o2uj7")
+
+[node name="Spawns" type="Node2D" parent="."]
+
+[node name="RightSpawn" type="Marker2D" parent="Spawns"]
+position = Vector2(1036, 319)
+
+[node name="LeftSpawn" type="Marker2D" parent="Spawns"]
+position = Vector2(111, 325)
+
+[connection signal="body_entered" from="Exits/ToRight" to="." method="_on_to_right_body_entered"]
+[connection signal="body_entered" from="Exits/ToLeft" to="." method="_on_to_left_body_entered"]

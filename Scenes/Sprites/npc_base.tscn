@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://dp3x0v7gy03va"]
+
+[ext_resource type="Script" path="res://Scripts/npc_base.gd" id="1_espb3"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_074xq"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[node name="NPCBase" type="Area2D"]
+script = ExtResource("1_espb3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_074xq")
+animation = &"Idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
