@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://0a3ylwd2d5dk"]
+
+[ext_resource type="Texture2D" uid="uid://d0fgb3qjv6l86" path="res://Assets/Trains/Sprite-0011.png" id="1_grc87"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(587, 332)
+scale = Vector2(18.48, 9.04)
+texture = ExtResource("1_grc87")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 90.0
+offset_top = 100.0
+offset_right = 1215.0
+offset_bottom = 689.0
+theme_override_font_sizes/font_size = 60
+text = "After using the man's charm on the strange glowing lights, you found yourself at an empty train station. The train you were riding was nowhere to be found..."
+autowrap_mode = 2

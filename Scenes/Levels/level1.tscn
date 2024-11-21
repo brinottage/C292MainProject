@@ -1,7 +1,25 @@
-[gd_scene load_steps=3 format=3 uid="uid://bd0otd3ouowj1"]
+[gd_scene load_steps=5 format=3 uid="uid://c7urvk3j3043w"]
 
 [ext_resource type="PackedScene" uid="uid://bb6wlmho0o2eu" path="res://Scenes/Levels/level.tscn" id="1_j3cj5"]
-[ext_resource type="Script" path="res://Scripts/level1.gd" id="2_i40yp"]
+[ext_resource type="Script" path="res://Scripts/level1.gd" id="2_ytibl"]
+[ext_resource type="PackedScene" uid="uid://dbuha47cyfpy1" path="res://Scenes/Sprites/shady_guy.tscn" id="3_25m35"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kv0t0"]
+size = Vector2(31, 544)
 
 [node name="Level" instance=ExtResource("1_j3cj5")]
-script = ExtResource("2_i40yp")
+script = ExtResource("2_ytibl")
+
+[node name="ShadyGuy" parent="." index="7" instance=ExtResource("3_25m35")]
+position = Vector2(940, 281)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." index="9"]
+position = Vector2(-90, 327)
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
+position = Vector2(89.5, 46)
+shape = SubResource("RectangleShape2D_kv0t0")
+
+[editable path="DADoor"]
+[editable path="DAWindow"]

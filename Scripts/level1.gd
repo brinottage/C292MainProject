@@ -3,7 +3,8 @@ extends LevelParent
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	RightCart = preload("res://Scenes/Levels/level2.tscn")
+	current_level = 0;
+#	RightCart = preload("res://Scenes/Levels/level2.tscn")
 	hasRightCart = true;
 
 

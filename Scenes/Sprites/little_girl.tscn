@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://b0duty4ob3aw2"]
+
+[ext_resource type="Texture2D" uid="uid://bykvy51vlimpr" path="res://Assets/Characters/NPCs/Sprite-0001.png" id="1_112i5"]
+[ext_resource type="Script" path="res://Scripts/little_girl.gd" id="2_k4d6y"]
+[ext_resource type="Script" path="res://Scripts/dialogue_area.gd" id="3_kqaa3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vm7kd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3fsx8"]
+
+[node name="LittleGirl" type="Sprite2D"]
+process_mode = 3
+texture_filter = 1
+scale = Vector2(10, 10)
+texture = ExtResource("1_112i5")
+script = ExtResource("2_k4d6y")
+
+[node name="Area2D" type="Area2D" parent="."]
+process_mode = 3
+position = Vector2(-0.2, 10.6)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+process_mode = 3
+shape = SubResource("RectangleShape2D_vm7kd")
+
+[node name="DALittleGirl" type="Area2D" parent="."]
+process_mode = 3
+position = Vector2(-0.2, 10.6)
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("3_kqaa3")
+text_key = "little_girl_upset"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DALittleGirl"]
+process_mode = 3
+shape = SubResource("RectangleShape2D_3fsx8")
+
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="area_entered" from="DALittleGirl" to="DALittleGirl" method="_on_area_entered"]
+[connection signal="area_exited" from="DALittleGirl" to="DALittleGirl" method="_on_area_exited"]

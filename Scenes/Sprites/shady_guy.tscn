@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://dbuha47cyfpy1"]
+
+[ext_resource type="Texture2D" uid="uid://dyybfp7rnwvlb" path="res://Assets/Characters/NPCs/ShadyGuy-export.png" id="1_482cy"]
+[ext_resource type="Script" path="res://Scripts/shady_guy.gd" id="2_kvbro"]
+[ext_resource type="Script" path="res://Scripts/dialogue_area.gd" id="2_niiil"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vm7kd"]
+size = Vector2(18.6, 13.9)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3fsx8"]
+size = Vector2(20, 15.2)
+
+[node name="ShadyGuy" type="Sprite2D"]
+process_mode = 3
+texture_filter = 1
+scale = Vector2(10, 10)
+texture = ExtResource("1_482cy")
+script = ExtResource("2_kvbro")
+
+[node name="Area2D" type="Area2D" parent="."]
+process_mode = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+process_mode = 3
+position = Vector2(0.7, 8.45)
+shape = SubResource("RectangleShape2D_vm7kd")
+
+[node name="DAShadyGuy" type="Area2D" parent="."]
+process_mode = 3
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("2_niiil")
+text_key = "shady_guy"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DAShadyGuy"]
+process_mode = 3
+position = Vector2(0, 8.3)
+shape = SubResource("RectangleShape2D_3fsx8")
+
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="area_entered" from="DAShadyGuy" to="DAShadyGuy" method="_on_area_entered"]
+[connection signal="area_exited" from="DAShadyGuy" to="DAShadyGuy" method="_on_area_exited"]

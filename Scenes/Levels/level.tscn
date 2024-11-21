@@ -1,14 +1,30 @@
-[gd_scene load_steps=5 format=3 uid="uid://bb6wlmho0o2eu"]
+[gd_scene load_steps=12 format=3 uid="uid://bb6wlmho0o2eu"]
 
 [ext_resource type="Texture2D" uid="uid://bei3rtx1imv3e" path="res://Assets/Trains/RedCart.png" id="1_1jvf7"]
 [ext_resource type="Script" path="res://Scripts/level.gd" id="1_3x1wl"]
 [ext_resource type="PackedScene" uid="uid://df5a8w8lawu38" path="res://Scenes/Sprites/player.tscn" id="1_cn6kb"]
+[ext_resource type="Texture2D" uid="uid://d0fgb3qjv6l86" path="res://Assets/Trains/Sprite-0011.png" id="2_p75f6"]
+[ext_resource type="PackedScene" uid="uid://2lykx3kwxttc" path="res://Scenes/World/dialogue_area.tscn" id="4_wlpjm"]
+[ext_resource type="PackedScene" uid="uid://dpt3qbgf8kifo" path="res://Scenes/World/dialogue_player.tscn" id="5_xwtmq"]
+[ext_resource type="AudioStream" uid="uid://d1uxtwyxu7odi" path="res://Assets/Audio/creepy_backgroundmusic74.mp3" id="7_1ujvb"]
+[ext_resource type="PackedScene" uid="uid://d4m42oe1h8s4a" path="res://Scenes/inventory.tscn" id="8_mn01p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o2uj7"]
 size = Vector2(20, 241)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mp6uh"]
+size = Vector2(252.5, 204)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s8udp"]
+size = Vector2(160, 85)
+
 [node name="Level" type="Node2D"]
 script = ExtResource("1_3x1wl")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(574.5, 317.5)
+scale = Vector2(13.0778, 7.32222)
+texture = ExtResource("2_p75f6")
 
 [node name="CartImage" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -45,5 +61,33 @@ position = Vector2(1036, 319)
 [node name="LeftSpawn" type="Marker2D" parent="Spawns"]
 position = Vector2(111, 325)
 
+[node name="DADoor" parent="." instance=ExtResource("4_wlpjm")]
+position = Vector2(189, 334)
+text_key = "door"
+
+[node name="CollisionShape2D" parent="DADoor" index="0"]
+position = Vector2(-2.75, 2)
+shape = SubResource("RectangleShape2D_mp6uh")
+
+[node name="DAWindow" parent="." instance=ExtResource("4_wlpjm")]
+position = Vector2(486, 298)
+text_key = "window"
+
+[node name="CollisionShape2D" parent="DAWindow" index="0"]
+position = Vector2(-7, -30)
+shape = SubResource("RectangleShape2D_s8udp")
+
+[node name="DialoguePlayer" parent="." instance=ExtResource("5_xwtmq")]
+scene_text_file = "res://Assets/json/world_dialogue.json"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_1ujvb")
+autoplay = true
+
+[node name="Control" parent="." instance=ExtResource("8_mn01p")]
+
 [connection signal="body_entered" from="Exits/ToRight" to="." method="_on_to_right_body_entered"]
 [connection signal="body_entered" from="Exits/ToLeft" to="." method="_on_to_left_body_entered"]
+
+[editable path="DADoor"]
+[editable path="DAWindow"]

@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://dpt3qbgf8kifo"]
+
+[ext_resource type="Script" path="res://Scripts/dialogue_player.gd" id="1_dj1ax"]
+[ext_resource type="Texture2D" uid="uid://bmsrtunh40vhd" path="res://Assets/Dialogue/Dialogue-Background.png" id="1_kuf41"]
+
+[node name="DialoguePlayer" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_dj1ax")
+
+[node name="Background" type="TextureRect" parent="."]
+process_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -160.0
+offset_top = -160.0
+offset_right = 160.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("1_kuf41")
+
+[node name="TextLabel" type="Label" parent="Background"]
+process_mode = 3
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 310.0
+offset_bottom = 150.0
+theme_override_font_sizes/font_size = 30
+text = "I will need a new "
+autowrap_mode = 2

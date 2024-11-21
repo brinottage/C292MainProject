@@ -1,0 +1,57 @@
+{
+	"window": [
+		"It's pitch-black outside."
+	],
+	"door": [
+		"Can't get off until the train stops."
+	],
+	"shady_guy": [
+		"Hey, want a cig?.",
+		"Here, take one."
+	],
+	"shady_guy_done": [
+		"..."
+	],
+	"old_man_upset": [
+		"Damn. All outta cigarettes.."
+	],
+	"old_man_grateful": [
+		"A cigarette?",
+		"...Thanks kid.",
+		"Have this.",
+		"*He hands you a doll*",
+	],
+	"old_man_content": [
+		"Thanks again."
+	],
+	"little_girl_upset": [
+		"I lost my doll...*sniff*"
+	],
+	"little_girl_grateful": [
+		"My doll!",
+		"Thank you mister",
+		"Here!",
+		"*She hands you some candy*",
+	],
+	"little_girl_content": [
+		"I love my doll!"
+	],
+	"sad_man_upset": [
+		"Dammit, why me..."
+	],
+	"sad_man_grateful": [
+		"Candy?",
+		"Ha... how nostalgic. It's like I'm a kid again...",
+		"...",
+		"Haven't you noticed how dark it is outside?",
+		"...",
+		"...You shouldn't be here.",
+		"Take this, and go to the frontmost cart...",
+		"...Or you'll end up somewhere you don't want to be.",
+		"*He hands you a strange looking charm*"
+	],
+	"sad_man_content": [
+		"*He's mumbling to himself*",
+		"Even if I'm damned, at least I can save someone else..."
+	]
+}

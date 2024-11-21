@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://4p5o234fwa43"]
+
+[ext_resource type="Texture2D" uid="uid://f25b1d1h3agr" path="res://Assets/Characters/NPCs/sadman.png" id="1_8an2b"]
+[ext_resource type="Script" path="res://Scripts/sad_man.gd" id="2_xqyeg"]
+[ext_resource type="Script" path="res://Scripts/dialogue_area.gd" id="3_uipff"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vm7kd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3fsx8"]
+
+[node name="SadMan" type="Sprite2D"]
+process_mode = 3
+texture_filter = 1
+scale = Vector2(10, 10)
+texture = ExtResource("1_8an2b")
+script = ExtResource("2_xqyeg")
+
+[node name="Area2D" type="Area2D" parent="."]
+process_mode = 3
+position = Vector2(-0.2, 6.6)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+process_mode = 3
+shape = SubResource("RectangleShape2D_vm7kd")
+
+[node name="DASadMan" type="Area2D" parent="."]
+process_mode = 3
+position = Vector2(-0.2, 6.6)
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("3_uipff")
+text_key = "sad_man_upset"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DASadMan"]
+process_mode = 3
+shape = SubResource("RectangleShape2D_3fsx8")
+
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="area_entered" from="DASadMan" to="DASadMan" method="_on_area_entered"]
+[connection signal="area_exited" from="DASadMan" to="DASadMan" method="_on_area_exited"]

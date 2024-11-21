@@ -1,11 +1,29 @@
-[gd_scene load_steps=4 format=3 uid="uid://bf0671soaxg58"]
+[gd_scene load_steps=6 format=3 uid="uid://bf0671soaxg58"]
 
 [ext_resource type="PackedScene" uid="uid://bb6wlmho0o2eu" path="res://Scenes/Levels/level.tscn" id="1_shdgc"]
 [ext_resource type="Script" path="res://Scripts/level5.gd" id="2_oo388"]
 [ext_resource type="Texture2D" uid="uid://d1bi5cqekfqpu" path="res://Assets/Trains/TanCart.png" id="3_7e8r8"]
+[ext_resource type="PackedScene" uid="uid://bqhbg2qklhnjq" path="res://Scenes/Sprites/win_trigger.tscn" id="4_lbayo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xlwi8"]
+size = Vector2(24, 290.5)
 
 [node name="Level" instance=ExtResource("1_shdgc")]
 script = ExtResource("2_oo388")
 
-[node name="CartImage" parent="." index="0"]
+[node name="CartImage" parent="." index="1"]
 texture = ExtResource("3_7e8r8")
+
+[node name="WinTrigger" parent="." index="7" instance=ExtResource("4_lbayo")]
+position = Vector2(890, 336)
+
+[node name="Barrier" type="StaticBody2D" parent="." index="9"]
+position = Vector2(1169, 318)
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Barrier" index="0"]
+position = Vector2(-16, -13.75)
+shape = SubResource("RectangleShape2D_xlwi8")
+
+[editable path="DADoor"]
+[editable path="DAWindow"]
