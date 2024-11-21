@@ -12,6 +12,8 @@ func _process(delta):
 	_update_inv_text()
 
 func _update_inv_text():
+	if Globals.SM == 0:
+		$HBoxContainer/ItemSlot.text = "???"
 	if Globals.SM == 1:
 		$HBoxContainer/ItemSlot.text = "Cigarette"
 	if Globals.OM == 2:

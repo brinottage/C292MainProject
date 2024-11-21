@@ -3,16 +3,16 @@
 [ext_resource type="PackedScene" uid="uid://bb6wlmho0o2eu" path="res://Scenes/Levels/level.tscn" id="1_brelb"]
 [ext_resource type="Script" path="res://Scripts/level2.gd" id="2_g6dfc"]
 [ext_resource type="Texture2D" uid="uid://dnj4ijhl6jfi7" path="res://Assets/Trains/BlueCart.png" id="3_jahca"]
-[ext_resource type="PackedScene" uid="uid://btlem0pujpqef" path="res://Scenes/Sprites/old_man.tscn" id="4_bvj1a"]
+[ext_resource type="PackedScene" uid="uid://b0duty4ob3aw2" path="res://Scenes/Sprites/little_girl.tscn" id="4_u3iq0"]
 
 [node name="Level" instance=ExtResource("1_brelb")]
 script = ExtResource("2_g6dfc")
 
-[node name="CartImage" parent="." index="0"]
+[node name="CartImage" parent="." index="1"]
 texture = ExtResource("3_jahca")
 
-[node name="OldMan" parent="." index="7" instance=ExtResource("4_bvj1a")]
-position = Vector2(837, 288)
+[node name="LittleGirl" parent="." index="2" instance=ExtResource("4_u3iq0")]
+position = Vector2(885, 279)
 
 [editable path="DADoor"]
 [editable path="DAWindow"]

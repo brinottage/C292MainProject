@@ -77,3 +77,12 @@ var CHARM: bool = false:
 		emit_signal("charm_change");
 	get:
 		return CHARM;
+
+# Finished Game
+signal comp_change
+var COMP: bool = false:
+	set(value):
+		COMP = value;
+		emit_signal("comp_change");
+	get:
+		return COMP;

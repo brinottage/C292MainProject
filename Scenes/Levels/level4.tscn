@@ -8,7 +8,7 @@
 [node name="Level" instance=ExtResource("1_rfwnu")]
 script = ExtResource("2_q5kcf")
 
-[node name="CartImage" parent="." index="0"]
+[node name="CartImage" parent="." index="1"]
 texture = ExtResource("3_co76g")
 
 [node name="SadMan" parent="." index="7" instance=ExtResource("4_jfp6o")]
