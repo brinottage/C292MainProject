@@ -1,3 +1,6 @@
+# Code Credit: StevePixelFace's 'Dialogue System in 10 Minutes! Godot Tutorial'
+# Youtube Video
+
 extends Area2D
 
 @export var text_key: String = ""

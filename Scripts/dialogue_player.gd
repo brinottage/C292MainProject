@@ -1,3 +1,6 @@
+# Code Credit: StevePixelFace's 'Dialogue System in 10 Minutes! Godot Tutorial'
+# Youtube Video
+
 extends CanvasLayer
 
 @export_file("*json") var scene_text_file: String
